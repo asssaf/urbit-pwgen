@@ -9,6 +9,10 @@
     ;script(type "text/javascript", src "/pwgen/main.js");
     ;input#go(type "button", value "Generate");
     ;div#err(class "disabled");
-
+    ;footer
+      ;small
+        ;a/"https://github.com/asssaf/urbit-pwgen"(target "_blank"): Source
+      ==
+    ==
   ==
 ==
