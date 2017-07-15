@@ -12,11 +12,13 @@
   ::[~ ..prep(+<+ u.+.old)]
   [~ ..prep(+<+ ~(. og eny.hid))]
 ::
-++  poke-noun
-  |=  a/*
+++  poke-atom
+  |=  a/@
   ^-  {(list move) _+>.$}
-  ~&  [%poked-with a]
-  =^  r1  rng  (rads:rng 100)
-  ~&  r1=r1
+  ?.  |(=(a 48) =(a 64))
+    ~&  [%needed-argument 48 64]
+    !!
+  =^  r1  rng  (rads:rng (bex a))
+  ~&  (scot %p r1)
   [~ +>.$]
 --
