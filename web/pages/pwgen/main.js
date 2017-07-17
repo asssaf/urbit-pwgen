@@ -1,9 +1,10 @@
 $(function() {
-  var password, $go48, $go64, $password, $err
+  var password, $go48, $go64, $password, $passCont, $err
 
   $go48 = $('#go48')
   $go64 = $('#go64')
   $password = $('#password')
+  $passCont = $('#pass-cont')
   $err = $('#err')
 
   $go48.on("click", function() { requestPassword(48) })
@@ -28,7 +29,8 @@ $(function() {
   window.urb.bind('/pwgen/response/',
     function(err,dat) {
       password = dat.data
-      $password.text("Password: " + password)
+      $password.text(password)
+      $passCont.show()
     }
   )
 })
