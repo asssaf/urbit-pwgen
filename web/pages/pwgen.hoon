@@ -7,7 +7,7 @@
   ;body
     ;h2:"Generate Password"
     ;div#password;
-    ;script(type "text/javascript", src "/pwgen/main.js");
+    ;script(type "text/javascript", src "/pages/pwgen/main.js");
     ;input#go48(type "button", value "48 bit");
     ;input#go64(type "button", value "64 bit");
     ;div#err(class "disabled");
