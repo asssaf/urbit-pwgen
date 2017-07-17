@@ -5,9 +5,11 @@
     ;title: Password Generator
   ==
   ;body
+    ;h2:"Generate Password"
     ;div#password;
     ;script(type "text/javascript", src "/pwgen/main.js");
-    ;input#go(type "button", value "Generate");
+    ;input#go48(type "button", value "48 bit");
+    ;input#go64(type "button", value "64 bit");
     ;div#err(class "disabled");
     ;footer
       ;small
