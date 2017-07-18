@@ -4,8 +4,9 @@
 |%
 ++  move  {bone card}
 ++  card
-  $%  {$diff $pwgen-pw {tape @}}
+  $%  {$diff $pwgen-pw password}
   ==
+++  password  {pw/tape bits/@}
 --
 ::
 |_  {hid/bowl rng/_og}
@@ -20,7 +21,7 @@
   |=  a/@
   ^-  {(list move) _+>.$}
   ~&  [%poked-with a=a]
-  =^  pw  rng  (pass a)
+  =^  pw  rng  (radpass a)
   ~&  pw=pw
   [~ +>.$]
 ::
@@ -32,14 +33,14 @@
   ?~  bits
     ~&  [%invalid-value jon=jon]
     [~ +>.$]
-  =^  pw  rng  (pass +.bits)
+  =^  pw  rng  (radpass +.bits)
   :_  +>.$
   %+  turn
     %+  pale  hid
     %+  both  (prix /pwgen/response)
     (bysrc src.hid)
   |=  {o/bone *}
-  [o %diff %pwgen-pw [pw +.bits]]
+  [o %diff %pwgen-pw pw]
 ::
 ++  peer-pwgen
   |=  pax/path
@@ -47,15 +48,16 @@
   ~&  [%subscribed-to pax=pax]
   [~ +>.$]
 ::
-++  pass
+++  radpass
   |=  bits/@
-  ^-  {tape _rng}
+  ^-  {password _rng}
   =+  str=(silt `(list @)`[48 64 ~])
   ?.  (~(has in str) bits)
     ~&  [%invalid-argument need=str was=bits]
     !!
   =+  r=(rads:rng (bex bits))
-  [(scow %p -.r) +.r]
+  :_  +.r
+  [(scow %p -.r) bits]
 ::
 ++  both  :: filter by two criteria
   |=  {a/$-(sink ?) b/$-(sink ?)}  |=  s/sink  ^-  ?
