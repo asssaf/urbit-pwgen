@@ -36,8 +36,10 @@
   =^  pw  rng  (radpass +.bits)
   :_  +>.$
   %+  turn
-    %+  pale  hid
-    %+  both  (prix /pwgen/response)
+    %+  pale
+      hid
+    %+  both
+      (prix /pwgen/response)
     (bysrc src.hid)
   |=  {o/bone *}
   [o %diff %pwgen-pw pw]
