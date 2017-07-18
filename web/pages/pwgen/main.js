@@ -7,7 +7,7 @@ $(function() {
   $passCont = $('#pass-cont')
   $err = $('#err')
 
-  $go48.on("click", function() { requestPassword(48) })
+  $go48.on("click", function() { requestPassword(49) })
   $go64.on("click", function() { requestPassword(64) })
 
   function requestPassword(bits) {

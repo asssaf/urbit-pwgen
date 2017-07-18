@@ -26,7 +26,7 @@
 ++  poke-json
   |=  jon/json
   ^-  {(list move) _+>.$}
-  ~|  [%poked-with jon=jon sup=sup.hid]
+  ~|  [%poked-with jon=jon]
   =+  bits=(ni:jo jon)
   ?~  bits
     ~&  [%invalid-value jon=jon]
