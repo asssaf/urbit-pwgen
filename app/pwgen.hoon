@@ -48,8 +48,9 @@
 ++  pass
   |=  bits/@
   ^-  {tape _rng}
-  ?.  |(=(bits 48) =(bits 64))
-    ~&  [%invalid-argument need=[48 64] was=bits]
+  =+  str=(silt `(list @)`[48 64 ~])
+  ?.  (~(has in str) bits)
+    ~&  [%invalid-argument need=str was=bits]
     !!
   =+  r=(rads:rng (bex bits))
   [(scow %p -.r) +.r]
