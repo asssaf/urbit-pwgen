@@ -11,7 +11,9 @@
   ;body
     ;h2:"Generate Password"
     ;div#pass-cont
-      ;span:"Password: "
+      ;span:"Password ("
+      ;span#bits;
+      ;span:" bit): "
       ;code#password;
     ==
     ;script(type "text/javascript", src "/pages/pwgen/main.js");

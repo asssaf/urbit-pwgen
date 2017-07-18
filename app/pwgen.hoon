@@ -37,7 +37,7 @@
     %+  pale  hid
     %+  both  (prix /pwgen/response)
     (bysrc src.hid)
-  |=({o/bone *} [o %diff %json (jape pw)])
+  |=({o/bone *} [o %diff %json (jobe [[%pw (jape pw)] [%bits (jone +.bits)] ~])])
 ::
 ++  peer-pwgen
   |=  pax/path

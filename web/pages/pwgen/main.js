@@ -1,13 +1,14 @@
 $(function() {
-  var password, $go48, $go64, $password, $passCont, $err
+  var $go48, $go64, $password, $bits, $passCont, $err
 
   $go48 = $('#go48')
   $go64 = $('#go64')
   $password = $('#password')
+  $bits = $('#bits')
   $passCont = $('#pass-cont')
   $err = $('#err')
 
-  $go48.on("click", function() { requestPassword(49) })
+  $go48.on("click", function() { requestPassword(48) })
   $go64.on("click", function() { requestPassword(64) })
 
   function requestPassword(bits) {
@@ -28,8 +29,8 @@ $(function() {
   window.urb.appl = "pwgen"
   window.urb.bind('/pwgen/response/',
     function(err,dat) {
-      password = dat.data
-      $password.text(password)
+      $bits.text(dat.data.bits)
+      $password.text(dat.data.pw)
       $passCont.show()
     }
   )
