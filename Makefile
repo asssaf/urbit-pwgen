@@ -1,4 +1,4 @@
-DIRS = app web
+DIRS = app mar web
 
 install: check-env
 	$(foreach dir,$(DIRS), cp -a $(dir)/* $(DESTDIR)/home/$(dir);)

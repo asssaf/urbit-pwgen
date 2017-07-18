@@ -1,9 +1,10 @@
 :: Password generator based on urbit's base-256 alphabet
+/?  314
 !:
 |%
 ++  move  {bone card}
 ++  card
-  $%  {$diff mark *}
+  $%  {$diff $pwgen-pw {tape @}}
   ==
 --
 ::
@@ -37,7 +38,8 @@
     %+  pale  hid
     %+  both  (prix /pwgen/response)
     (bysrc src.hid)
-  |=({o/bone *} [o %diff %json (jobe [[%pw (jape pw)] [%bits (jone +.bits)] ~])])
+  |=  {o/bone *}
+  [o %diff %pwgen-pw [pw +.bits]]
 ::
 ++  peer-pwgen
   |=  pax/path
