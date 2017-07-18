@@ -19,11 +19,8 @@
   |=  a/@
   ^-  {(list move) _+>.$}
   ~&  [%poked-with a=a]
-  ?.  |(=(a 48) =(a 64))
-    ~&  [%needed-argument 48 64]
-    !!
-  =^  r1  rng  (rads:rng (bex a))
-  ~&  (scot %p r1)
+  =^  pw  rng  (pass a)
+  ~&  pw=pw
   [~ +>.$]
 ::
 ++  poke-json
@@ -34,19 +31,28 @@
   ?~  bits
     ~&  [%invalid-value jon=jon]
     [~ +>.$]
-  =^  pw  rng  (rads:rng (bex +.bits))
+  =^  pw  rng  (pass +.bits)
   :_  +>.$
   %+  turn
     %+  pale  hid
     %+  both  (prix /pwgen/response)
     (bysrc src.hid)
-  |=({o/bone *} [o %diff %json (jape (scow %p pw))])
+  |=({o/bone *} [o %diff %json (jape pw)])
 ::
 ++  peer-pwgen
   |=  pax/path
   ^-  {(list move) _+>.$}
   ~&  [%subscribed-to pax=pax]
   [~ +>.$]
+::
+++  pass
+  |=  bits/@
+  ^-  {tape _rng}
+  ?.  |(=(bits 48) =(bits 64))
+    ~&  [%invalid-argument need=[48 64] was=bits]
+    !!
+  =+  r=(rads:rng (bex bits))
+  [(scow %p -.r) +.r]
 ::
 ++  both  :: filter by two criteria
   |=  {a/$-(sink ?) b/$-(sink ?)}  |=  s/sink  ^-  ?
