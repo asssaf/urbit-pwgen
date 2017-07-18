@@ -13,7 +13,7 @@ $(function() {
 
   function requestPassword(bits) {
     window.urb.send(
-      bits, {mark: "json"}
+      bits, {mark: "pwgen-pwreq"}
     ,function(err,res) {
       if(err)
         return $err.text("There was an error. Sorry!")

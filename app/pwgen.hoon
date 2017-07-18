@@ -25,15 +25,11 @@
   ~&  pw=pw
   [~ +>.$]
 ::
-++  poke-json
-  |=  jon/json
+++  poke-pwgen-pwreq
+  |=  bits/@
   ^-  {(list move) _+>.$}
-  ~|  [%poked-with jon=jon]
-  =+  bits=(ni:jo jon)
-  ?~  bits
-    ~&  [%invalid-value jon=jon]
-    [~ +>.$]
-  =^  pw  rng  (radpass +.bits)
+  ~|  [%poked-with bits=bits]
+  =^  pw  rng  (radpass bits)
   :_  +>.$
   %+  turn
     %+  pale
