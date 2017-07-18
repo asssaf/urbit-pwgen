@@ -36,7 +36,10 @@
     [~ +>.$]
   =^  pw  rng  (rads:rng (bex +.bits))
   :_  +>.$
-  %+  turn  (pale hid (bysrc /pwgen/response src.hid))
+  %+  turn
+    %+  pale  hid
+    %+  both  (prix /pwgen/response)
+    (bysrc src.hid)
   |=({o/bone *} [o %diff %json (jape (scow %p pw))])
 ::
 ++  peer-pwgen
@@ -45,8 +48,11 @@
   ~&  [%subscribed-to pax=pax]
   [~ +>.$]
 ::
-++  bysrc            :: filter by src and path
-  |=  {pax/path src/ship}  |=  sink  ^-  ?
-  ?~  pax  &  ?~  r.+<  |
-  &(=(i.pax i.r.+<) $(pax t.pax, r.+< t.r.+<) =(q.+< src))
+++  both  :: filter by two criteria
+  |=  {a/$-(sink ?) b/$-(sink ?)}  |=  s/sink  ^-  ?
+  &((a s) (b s))
+::
+++  bysrc            :: filter by src
+  |=  src/ship  |=  sink  ^-  ?
+  =(q.+< src)
 --
